@@ -79,6 +79,8 @@ namespace Cambios
 
             btn_Converter.Enabled = true;
 
+            btn_trocar.Enabled = true;
+
             lbl_resultado.Text = "Taxas atualizadas ...";
 
             if (load == true)
@@ -146,6 +148,19 @@ namespace Cambios
             var ValorConvertido = valor / (decimal)TaxaOrigem.TaxRate * (decimal)TaxaDestino.TaxRate;
 
             lbl_resultado.Text = string.Format("{0} {1:C2} = {2} {3:C2}", TaxaOrigem.Code, valor, TaxaDestino.Code, ValorConvertido);
+        }
+
+        private void btn_trocar_Click(object sender, EventArgs e)
+        {
+            Trocar();
+        }
+
+        private void Trocar()
+        {
+            var aux = cb_Origem.SelectedItem;
+            cb_Origem.SelectedItem = cb_Destino.SelectedItem;
+            cb_Destino.SelectedItem = aux;
+            Converter();
         }
     }
 }
