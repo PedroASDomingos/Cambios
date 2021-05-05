@@ -26,6 +26,8 @@ namespace Cambios
 
         private DialogService dialogService;
 
+        private DataService dataService;
+
         public Form1()
         {
             InitializeComponent();
@@ -35,6 +37,8 @@ namespace Cambios
             apiService = new ApiService();
 
             dialogService = new DialogService();
+
+            dataService = new DataService();
 
             LoadRates();
         }
@@ -96,7 +100,7 @@ namespace Cambios
 
         private void LoadLocalRates()
         {
-            MessageBox.Show("Não está implementado!");
+            Rates = dataService.GetData();
         }
 
         private async Task LoadApiRates()
@@ -106,6 +110,10 @@ namespace Cambios
             var response = await apiService.GetRates("http://cambios.somee.com", "/api/rates");
 
             Rates = (List<Rate>)response.Result;
+
+            dataService.DeleteData();
+
+            dataService.SaveData(Rates);
 
         }
 
