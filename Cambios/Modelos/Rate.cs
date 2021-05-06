@@ -1,5 +1,4 @@
-﻿
-namespace Cambios.Modelos
+﻿namespace Cambios.Modelos
 {
     public class Rate
     {

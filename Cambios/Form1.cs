@@ -67,6 +67,7 @@ namespace Cambios
             if (Rates.Count == 0)
             {
                 lbl_resultado.Text = "Não há ligação a Internet" + Environment.NewLine + "e não foram préviamente carregadas as taxas." + Environment.NewLine + "Tente mais tarde";
+                lbl_Status.Text = "1ª inicialização deverá ter ligação a internet";
                 return;
             }
 
@@ -87,7 +88,7 @@ namespace Cambios
 
             lbl_resultado.Text = "Taxas atualizadas ...";
 
-            if (load == true)
+            if (load)
             {
                 lbl_Status.Text = string.Format("Taxas carregadas da internet em {0:F}", DateTime.Now);
             }

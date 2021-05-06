@@ -3,9 +3,6 @@ using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Cambios.Servicos
 {
@@ -52,7 +49,7 @@ namespace Cambios.Servicos
             {
                 foreach (var rate in Rates)
                 {
-                    string sql = string.Format("insert into Rates (RateId, Code, TaxRate, Name) values({0}, '{1}', {2}, '{3}')", rate.RateId, rate.Code, rate.TaxRate, rate.Name);
+                    string sql = string.Format("insert into Rates (RateId, Code, TaxRate, Name) values({0}, '{1}', '{2}', '{3}')", rate.RateId, rate.Code, rate.TaxRate, rate.Name);
 
                     command = new SQLiteCommand(sql, connection);
 
