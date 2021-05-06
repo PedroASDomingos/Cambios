@@ -1,14 +1,7 @@
 ﻿using Cambios.Modelos;
 using Cambios.Servicos;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,7 +19,7 @@ namespace Cambios
 
         private DialogService dialogService;
 
-        private DataService dataService;
+        public DataService dataService;
 
         public Form1()
         {
@@ -63,7 +56,6 @@ namespace Cambios
                 await LoadApiRates();
                 load = true;
             }
-
             if (Rates.Count == 0)
             {
                 lbl_resultado.Text = "Não há ligação a Internet" + Environment.NewLine + "e não foram préviamente carregadas as taxas." + Environment.NewLine + "Tente mais tarde";
@@ -79,8 +71,6 @@ namespace Cambios
 
             cb_Destino.DataSource = Rates;
             cb_Destino.DisplayMember = "Name";
-
-            
 
             btn_Converter.Enabled = true;
 

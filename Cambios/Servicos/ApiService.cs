@@ -12,7 +12,6 @@
         {
             try
             {
-                
                 var client = new HttpClient();
                 //liga-se a api
                 client.BaseAddress = new Uri(urlBase);
